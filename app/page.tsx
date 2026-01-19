@@ -2,6 +2,7 @@ import { Badge } from "@/components/Badge";
 import { ExternalLink } from "@/components/ExternalLink";
 import { Section } from "@/components/Section";
 import { portfolio } from "@/lib/portfolio";
+import Image from "next/image";
 
 const labelByType = {
   know: "What I Know",
@@ -12,6 +13,33 @@ const labelByType = {
 export default function Home() {
   return (
     <div className="stack">
+      <Section
+        id="about"
+        title="About Me"
+        description="A short bio with a photo."
+      >
+        <div className="card">
+          <div className="flex flex-col sm:flex-row items-start gap-6">
+            {portfolio.photo ? (
+              <Image
+                src={portfolio.photo}
+                alt={portfolio.photoAlt ?? portfolio.name}
+                width={portfolio.photoWidth ?? 240}
+                height={portfolio.photoHeight ?? 240}
+                className="rounded-lg object-cover"
+                priority
+              />
+            ) : null}
+            <div className="space-y-3">
+              <h3 className="project-title">Hi, I’m {portfolio.name}.</h3>
+              <p className="project-desc">
+                {portfolio.about ?? "Add a brief introduction about yourself here."}
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
       <section className="card">
         <div className="space-y-3">
           <Badge variant="neutral">Hero Statement</Badge>

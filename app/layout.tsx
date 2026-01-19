@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "./site.css";
 import { portfolio } from "@/lib/portfolio";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <body className={`${geistSans.variable} ${geistMono.variable} site-body`}>
         <a
           href="#content"
@@ -34,37 +35,27 @@ export default function RootLayout({
           Skip to content
         </a>
 
-        <div className="layout">
-          <aside className="sidebar">
+        <header className="topbar">
+          <div className="topbar-brand">
             <p className="brand">{portfolio.name}</p>
             <p className="subtitle">
               {portfolio.role}
               {portfolio.location ? ` • ${portfolio.location}` : ""}
             </p>
-
-            <nav className="nav">
-              <a className="nav-link" href="#projects">
-                Projects
-              </a>
-              <a className="nav-link" href="#learning">
-                Currently Learning
-              </a>
-              <a className="nav-link" href="#links">
-                Links
-              </a>
-            </nav>
-
-            <p className="sidebar-tip">
-              Tip: edit your content in <strong>lib/portfolio.ts</strong>
-            </p>
-          </aside>
-
-          <div className="content-wrap">
-            <main id="content" className="content">
-              {children}
-            </main>
-            <footer className="footer">Built with Next.js. Deployed on Vercel.</footer>
           </div>
+          <nav className="nav">
+            <a className="nav-link" href="#about">About</a>
+            <a className="nav-link" href="#projects">Projects</a>
+            <a className="nav-link" href="#learning">Currently Learning</a>
+            <a className="nav-link" href="#links">Links</a>
+          </nav>
+          <ThemeToggle />
+        </header>
+        <div className="content-wrap">
+          <main id="content" className="content">
+            {children}
+          </main>
+          <footer className="footer">Built with Next.js. Deployed on Vercel.</footer>
         </div>
       </body>
     </html>

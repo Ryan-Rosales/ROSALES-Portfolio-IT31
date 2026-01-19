@@ -23,6 +23,11 @@ export type Portfolio = {
   links: PortfolioLink[];
   bigThree: PortfolioProject[];
   currentlyLearning: string[];
+  about?: string;
+  photo?: string;
+  photoAlt?: string;
+  photoWidth?: number;
+  photoHeight?: number;
 };
 
 export const portfolio: Portfolio = {
@@ -31,6 +36,12 @@ export const portfolio: Portfolio = {
   heroStatement:
     "I develop clean, accessible web experiences with a strong focus on user experience.",
   location: "Your City, IT",
+  about:
+    "I am a frontend developer specializing in accessible, high-performance user interfaces with a strong emphasis on thoughtful user experience. I enjoy transforming ideas into clean, efficient, and maintainable code, and I thrive in collaborative environments to build products that deliver meaningful and enjoyable user experiences.",
+  photo: "/Messenger_creation_381310461042177.jpeg",
+  photoAlt: "Photo of Ryan S. Rosales",
+  photoWidth: 240,
+  photoHeight: 240,
   links: [
     { label: "Email", href: "mailto:you@example.com" },
     { label: "GitHub", href: "https://github.com/your-handle" },
