@@ -11,6 +11,16 @@ const labelByType = {
 } as const;
 
 export default function Home() {
+  const learningSentence =
+    portfolio.currentlyLearning.length === 0
+      ? ""
+      : portfolio.currentlyLearning.length === 1
+      ? portfolio.currentlyLearning[0]
+      : `${portfolio.currentlyLearning.slice(0, -1).join(", ")} and ${
+          portfolio.currentlyLearning.slice(-1)[0]
+        }`;
+  const emailLink = portfolio.links.find((l) => l.href.startsWith("mailto:"));
+  const emailAddress = emailLink?.href.replace(/^mailto:/, "");
   return (
     <div className="stack">
       <Section
@@ -114,37 +124,47 @@ export default function Home() {
       <Section
         id="learning"
         title="Currently Learning"
-        description="A simple list that shows momentum and curiosity."
+        description="A short sentence about current focus areas."
       >
         <div className="card">
-          <ul className="grid gap-3 sm:grid-cols-2">
-            {portfolio.currentlyLearning.map((item) => (
-              <li
-                key={item}
-                className="learning-item"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+          <p className="section-desc">
+            {learningSentence}
+          </p>
         </div>
       </Section>
 
       <Section
-        id="links"
-        title="Links"
-        description="Add your real links so people can contact you."
+        id="contact"
+        title="Contact"
+        description="My contact details and socials."
       >
-        <div className="links-row">
-          {portfolio.links.map((link) => (
-            <ExternalLink
-              key={link.href}
-              href={link.href}
-              className="button-link"
-            >
-              {link.label}
-            </ExternalLink>
-          ))}
+        <div className="stack">
+          <div className="card">
+            <div className="space-y-3">
+              <h3 className="section-title">Contact Details</h3>
+              <p className="section-desc">Name: {portfolio.name}</p>
+              <p className="section-desc">Phone: 09318863168</p>
+              {emailLink ? (
+                <p className="section-desc">
+                  Email: <a href={emailLink.href} className="button-link">{emailAddress}</a>
+                </p>
+              ) : null}
+            </div>
+          </div>
+
+          <div className="links-row" aria-label="Social links">
+            {portfolio.links
+              .filter((l) => !l.href.startsWith("mailto:"))
+              .map((link) => (
+                <ExternalLink
+                  key={link.href}
+                  href={link.href}
+                  className="button-link"
+                >
+                  {link.label}
+                </ExternalLink>
+              ))}
+          </div>
         </div>
       </Section>
     </div>

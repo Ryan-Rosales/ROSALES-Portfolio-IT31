@@ -47,7 +47,7 @@ export default function RootLayout({
             <a className="nav-link" href="#about">About</a>
             <a className="nav-link" href="#projects">Projects</a>
             <a className="nav-link" href="#learning">Currently Learning</a>
-            <a className="nav-link" href="#links">Links</a>
+            <a className="nav-link" href="#contact">Contact</a>
           </nav>
           <ThemeToggle />
         </header>

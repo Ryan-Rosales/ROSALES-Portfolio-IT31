@@ -32,20 +32,19 @@ export type Portfolio = {
 
 export const portfolio: Portfolio = {
   name: "Ryan S. Rosales",
-  role: "Frontend Developer",
+  role: "My Portfolio",
   heroStatement:
     "I develop clean, accessible web experiences with a strong focus on user experience.",
   location: "Your City, IT",
   about:
-    "I am a frontend developer specializing in accessible, high-performance user interfaces with a strong emphasis on thoughtful user experience. I enjoy transforming ideas into clean, efficient, and maintainable code, and I thrive in collaborative environments to build products that deliver meaningful and enjoyable user experiences.",
+    "I am a frontend developer and I'm Curently 3rdYr Student specializing in accessible, high-performance user interfaces with a strong emphasis on thoughtful user experience. I enjoy transforming ideas into clean, efficient, and maintainable code, and I thrive in collaborative environments to build products that deliver meaningful and enjoyable user experiences.",
   photo: "/Messenger_creation_381310461042177.jpeg",
   photoAlt: "Photo of Ryan S. Rosales",
   photoWidth: 240,
   photoHeight: 240,
   links: [
-    { label: "Email", href: "mailto:you@example.com" },
-    { label: "GitHub", href: "https://github.com/your-handle" },
-    { label: "LinkedIn", href: "https://www.linkedin.com/in/your-handle" },
+    { label: "Email", href: "ryan.rosales2@urios.edu.ph" },
+    { label: "GitHub", href: "https://github.com/Ryan-Rosales" },
   ],
   bigThree: [
     {
@@ -90,8 +89,6 @@ export const portfolio: Portfolio = {
     },
   ],
   currentlyLearning: [
-    "TypeScript best practices",
-    "Accessibility (ARIA, keyboard UX)",
-    "Testing (Playwright / React Testing Library)",
+    "Passionate about crafting accessible, user-friendly applications using TypeScript best practices and dependable testing to deliver experiences everyone can trust.",
   ],
 };
